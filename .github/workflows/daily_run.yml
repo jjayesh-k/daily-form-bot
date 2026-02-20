@@ -42,4 +42,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: form-screenshots
-          path: "*.png"
+          path: "*.png" # Adjust this if your script saves screenshots in a specific folder
