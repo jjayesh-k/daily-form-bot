@@ -1,0 +1,38 @@
+name: Daily Form Automation
+
+on:
+  schedule:
+    # Runs at 11:40 UTC, which is exactly 5:10 PM IST (17:10)
+    # The script handles the delays for Mehul (17:12) and Anirudh (17:14) internally.
+    - cron: '40 11 * * *'
+  
+  # Allows you to click a button in GitHub to test it immediately
+  workflow_dispatch:
+
+jobs:
+  run-attendance-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Get your code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Step 3: Install the required libraries
+      - name: Install dependencies
+        run: |
+          pip install selenium webdriver-manager
+
+      # Step 4: Run the script with your hidden password
+      - name: Run script
+        env:
+          # This grabs the password from your GitHub Secrets
+          # Make sure your secret is named 'MY_EMAIL_PASSWORD'
+          MY_EMAIL_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+        run: python script.py
