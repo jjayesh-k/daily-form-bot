@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # --- SECURE CONFIGURATION ---
 # We now pull these from the environment variables
-SENDER_EMAIL = os.environ.get("jayeshkandar7@gmail.com") 
+SENDER_EMAIL = "jayeshkandar7@gmail.com" 
 SENDER_PASSWORD = os.environ.get("EMAIL_APP_PASSWORD")
 FORM_URL = "https://forms.office.com/Pages/ResponsePage.aspx?id=DRj7o8QjyUSiQceBCSAr05X2XiTtPspNgAlIHjt75qdUNDJWTVFCSDZaNTM1UFUzRk1MVDZDNkVTRy4u"
 
