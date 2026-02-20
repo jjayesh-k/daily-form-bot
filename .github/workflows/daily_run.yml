@@ -36,3 +36,10 @@ jobs:
           # Make sure your secret is named 'MY_EMAIL_PASSWORD'
           MY_EMAIL_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
         run: python script.py
+
+      - name: Save Screenshots
+        if: always() # IMPORTANT: Runs even if the script crashes!
+        uses: actions/upload-artifact@v4
+        with:
+          name: form-screenshots
+          path: "*.png"
